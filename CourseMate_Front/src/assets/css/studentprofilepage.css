@@ -1,0 +1,58 @@
+/* StudentProfilePage.css */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.profile-container {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.profile-card h1 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.profile-card h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.profile-info p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.course-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+}
+.form-control {
+  background: radial-gradient(rgb(179, 211, 216), rgb(158, 193, 205));
+}
+
+.form-label {
+  color: #222 !important;
+}
+h1 {
+  color: #000000;
+}

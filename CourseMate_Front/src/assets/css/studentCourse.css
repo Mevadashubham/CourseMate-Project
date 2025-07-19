@@ -1,0 +1,50 @@
+.gradient-indigo-purple {
+  background: linear-gradient(to right, #4c51bf, #805ad5);
+}
+.w-8 {
+  width: 2rem !important; /* 32px */
+}
+.h-8 {
+  height: 2rem !important; /* 32px */
+}
+.w-16 {
+  width: 4rem !important; /* 64px */
+}
+.h-16 {
+  height: 4rem !important; /* 64px */
+}
+.w-250px {
+  width: 250px !important;
+}
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+/* Custom progress bar colors */
+.bg-progress-green {
+  background-color: #48bb78 !important; /* Tailwind green-500 */
+}
+.bg-progress-orange {
+  background-color: #ed8936 !important; /* Tailwind orange-500 */
+}
+.bg-progress-blue {
+  background-color: #4299e1 !important; /* Tailwind blue-500 */
+}
+.bg-status-ongoing {
+  background-color: #e0f2f7; /* light blue */
+  color: #007bff; /* blue */
+}
+.bg-status-completed {
+  background-color: #e6fffa; /* light green */
+  color: #28a745; /* green */
+}
+.bg-status-pending {
+  background-color: #fff3e0; /* light orange */
+  color: #fd7e14; /* orange */
+}
+.bg-status-dropped {
+  background-color: #ffebee; /* light red */
+  color: #dc3545; /* red */
+}

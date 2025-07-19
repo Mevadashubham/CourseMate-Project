@@ -1,0 +1,45 @@
+.landing-wrapper {
+  display: flex;
+  padding-top: 100px;
+  background: linear-gradient(to bottom right, #5f0eff, #3498db);
+  color: #333;
+  min-height: 100vh;
+}
+
+.sidebar-text {
+  flex: 1;
+  padding-left: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  max-width: 200px;
+}
+
+.card-container {
+  flex: 3;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+.info-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 240px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.info-card:hover {
+  transform: scale(1.03);
+}
+
+.info-content {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
