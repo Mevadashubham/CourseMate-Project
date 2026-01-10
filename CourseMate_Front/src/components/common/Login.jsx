@@ -15,6 +15,7 @@ export const Login = () => {
 
       if (res.status === 200) {
         alert("Login Success"); //tost...
+
         localStorage.setItem("id", res.data.data._id);
         localStorage.setItem("role", res.data.data.roleId.name);
         localStorage.setItem("id", user._id); // for /getuser/:id
@@ -22,14 +23,22 @@ export const Login = () => {
         localStorage.setItem("user", JSON.stringify(user)); // optional full user for instant access
         localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-        if (res.data.data.roleId.name === "admin") {
-          navigate("/admin"); //check in app.js
-        } else if (res.data.data.roleId.name === "user") {
-          navigate("/student");
-        } else if (res.data.data.roleId.name === "instructor") {
-          navigate("/admin");
+        if (user.roleId && user.roleId.name) {
+          localStorage.setItem("role", user.roleId.name);
+
+          // Redirect based on role
+          if (user.roleId.name === "admin") {
+            navigate("/admin");
+          } else if (user.roleId.name === "user") {
+            navigate("/student");
+          } else if (user.roleId.name === "instructor") {
+            navigate("/admin"); // or a separate instructor route if needed
+          } else {
+            alert("Unknown role");
+          }
         } else {
-          alert("Unknown role");
+          console.error("Role data missing in response:", user);
+          alert("Login failed: user role information is missing.");
         }
       }
     } catch (error) {
@@ -37,7 +46,7 @@ export const Login = () => {
         "Login failed:",
         error.response?.data?.message || error.message
       );
-      alert(error.response?.data?.message || "Login Failed"); // Show backend error message if available
+      alert(error.response?.data?.message || "Login Failed");
     }
   };
 
