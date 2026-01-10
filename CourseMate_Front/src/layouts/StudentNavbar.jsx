@@ -5,7 +5,7 @@ import GooeyNav from "../assets/GooeyNav";
 import "../assets/css/studentNavbar.css";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
-export const StudentNavbar = () => {
+const StudentNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const items = [
@@ -65,3 +65,4 @@ export const StudentNavbar = () => {
     </nav>
   );
 };
+export default StudentNavbar;
