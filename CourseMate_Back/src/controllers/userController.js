@@ -1,6 +1,6 @@
-const { compareSync } = require("bcryptjs"); // Add this line
-const userModel = require("../models/UserModel");
-const bcrypt = require("bcrypt");
+import { compareSync } from "bcryptjs";
+import userModel from "../models/UserModel.js";
+import bcrypt from "bcrypt";
 
 const loginUser = async (req, res) => {
   const email = req.body.email;
@@ -96,10 +96,4 @@ const updateUserProfile = async (req, res) => {
   }
 };
 
-module.exports = {
-  signup,
-  getAllUsers,
-  getUserById,
-  loginUser,
-  updateUserProfile,
-};
+export { signup, getAllUsers, getUserById, loginUser, updateUserProfile };

@@ -1,8 +1,8 @@
-const express = require("express");
-const multer = require("multer");
-const adminController = require("../controllers/adminController");
-const router = express.Router();
+import express from "express";
+import multer from "multer";
+import * as adminController from "../controllers/adminController.js";
 
+const router = express.Router();
 const upload = multer({ dest: "uploads/" }); // or use cloud storage for production
 
 router.post(
@@ -11,4 +11,4 @@ router.post(
   adminController.addCourseResource
 );
 
-module.exports = router;
+export default router;

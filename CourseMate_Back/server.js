@@ -1,9 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, ".env") });
 const app = express();
 
 /* ----------- MIDDLEWARE ----------- */
@@ -25,16 +30,16 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 //   JSON.stringify(payload).length / 1024 / 1024
 // );
 
-const userRoutes = require("./src/routes/userRoutes.js");
+import userRoutes from "./src/routes/userRoutes.js";
 app.use(userRoutes);
 
-const courseRoutes = require("./src/routes/courseRoutes.js");
+import courseRoutes from "./src/routes/courseRoutes.js";
 app.use("/courses", courseRoutes);
 
-const roleRoutes = require("./src/routes/roleRoutes.js");
+import roleRoutes from "./src/routes/roleRoutes.js";
 app.use(roleRoutes);
 
-const assignmentRoutes = require("./src/routes/assignmentRoutes");
+import assignmentRoutes from "./src/routes/assignmentRoutes.js";
 app.use("/assignments", assignmentRoutes);
 
 /* ----------- DB + SERVER ----------- */

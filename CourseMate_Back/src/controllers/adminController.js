@@ -1,6 +1,6 @@
-const Course = require("../models/courseModel");
+import Course from "../models/courseModel.js";
 
-exports.addCourseResource = async (req, res) => {
+export const addCourseResource = async (req, res) => {
   try {
     const { id } = req.params;
     const { title, type, url } = req.body;

@@ -1,5 +1,7 @@
-const routes = require("express").Router();
-const courseController = require("../controllers/courseController.js");
+import express from "express";
+import * as courseController from "../controllers/courseController.js";
+
+const routes = express.Router();
 
 routes.post("/", courseController.createCourse);
 routes.get("/", courseController.getCourses);
@@ -14,4 +16,4 @@ routes.put("/:courseId", courseController.updateCourse);
 routes.patch("/:id/add-student", courseController.addStudentToCourse);
 routes.delete("/:Id", courseController.deleteCourse);
 
-module.exports = routes;
+export default routes;

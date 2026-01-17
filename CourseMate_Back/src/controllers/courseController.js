@@ -1,9 +1,9 @@
-const Course = require("../models/courseModel");
-const { v4: uuidv4 } = require("uuid");
-const mongoose = require("mongoose");
+import Course from "../models/courseModel.js";
+import { v4 as uuidv4 } from "uuid";
+import mongoose from "mongoose";
 
 // Create a new course
-exports.createCourse = async (req, res) => {
+export const createCourse = async (req, res) => {
   try {
     const data = req.body;
 
@@ -32,7 +32,7 @@ exports.createCourse = async (req, res) => {
 };
 
 // Get all courses
-exports.getCourses = async (req, res) => {
+export const getCourses = async (req, res) => {
   try {
     const courses = await Course.find().populate(
       "instructor",
@@ -45,7 +45,7 @@ exports.getCourses = async (req, res) => {
 };
 
 // Get course by ID
-exports.getCourseById = async (req, res) => {
+export const getCourseById = async (req, res) => {
   try {
     const { courseId } = req.params;
 
@@ -72,7 +72,7 @@ exports.getCourseById = async (req, res) => {
 
 // Update course
 
-exports.updateCourse = async (req, res) => {
+export const updateCourse = async (req, res) => {
   try {
     const data = req.body;
 
@@ -91,7 +91,7 @@ exports.updateCourse = async (req, res) => {
 };
 
 // Delete course
-exports.deleteCourse = async (req, res) => {
+export const deleteCourse = async (req, res) => {
   try {
     const deleted = await Course.findOneAndDelete(req.params.courseId);
     if (!deleted) return res.status(404).json({ error: "Course not found" });
@@ -102,7 +102,7 @@ exports.deleteCourse = async (req, res) => {
 };
 
 // Course Stats
-exports.getCourseStats = async (req, res) => {
+export const getCourseStats = async (req, res) => {
   try {
     const total = await Course.countDocuments({});
     const ongoing = await Course.countDocuments({ status: "ongoing" });
@@ -114,7 +114,7 @@ exports.getCourseStats = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-exports.getCoursesBySemester = async (req, res) => {
+export const getCoursesBySemester = async (req, res) => {
   try {
     const courses = await Course.find({ semester: req.params.sem });
     res.status(200).json(courses);
@@ -123,7 +123,7 @@ exports.getCoursesBySemester = async (req, res) => {
   }
 };
 
-exports.addStudentToCourse = async (req, res) => {
+export const addStudentToCourse = async (req, res) => {
   const { id } = req.params;
   const { studentId } = req.body;
 
@@ -157,7 +157,7 @@ exports.addStudentToCourse = async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
-exports.addVideo = async (req, res) => {
+export const addVideo = async (req, res) => {
   const { id } = req.params;
   const { title, url, type, duration } = req.body;
 
@@ -167,7 +167,7 @@ exports.addVideo = async (req, res) => {
 
   res.status(200).json(course);
 };
-exports.getCoursesByInstructor = async (req, res) => {
+export const getCoursesByInstructor = async (req, res) => {
   try {
     const instructorId = req.params.instructorId;
 

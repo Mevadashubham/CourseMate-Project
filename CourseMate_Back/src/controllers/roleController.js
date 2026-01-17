@@ -1,4 +1,4 @@
-const roleModel = require("../models/roleModel");
+import roleModel from "../models/roleModel.js";
 
 const getAllRoles = async (req, res) => {
   const roles = await roleModel.find();
@@ -37,9 +37,4 @@ const getRoleById = async (req, res) => {
   });
 };
 
-module.exports = {
-  getAllRoles,
-  addRole,
-  deleteRole,
-  getRoleById,
-};
+export { getAllRoles, addRole, deleteRole, getRoleById };

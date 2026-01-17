@@ -1,10 +1,11 @@
-const routes = require("express").Router();
+import express from "express";
+import * as userController from "../controllers/userController.js";
 
-const userController = require("../controllers/userController");
+const routes = express.Router();
 
 routes.post("/user", userController.signup);
 routes.get("/user/:id", userController.getUserById);
 routes.post("/user/login", userController.loginUser);
 routes.patch("/user/:id", userController.updateUserProfile);
 
-module.exports = routes;
+export default routes;

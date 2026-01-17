@@ -1,6 +1,6 @@
-const Course = require("../models/courseModel");
+import Course from "../models/courseModel.js";
 
-exports.uploadAssignment = async (req, res) => {
+export const uploadAssignment = async (req, res) => {
   const { assignmentId } = req.params;
 
   try {
