@@ -14,7 +14,7 @@ import "./App.css";
 import FreeCoursePage from "./components/freeCoursePage";
 
 function App() {
-  axios.defaults.baseURL = "http://localhost:5000";
+  axios.defaults.baseURL = "https://coursemate-backend-tsb7.onrender.com";
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
