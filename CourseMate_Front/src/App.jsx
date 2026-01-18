@@ -19,7 +19,6 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="*" element={<Login />} />
 
       {/*Student Role*/}
       <Route path="/student" element={<StudentLayout />}>
@@ -29,6 +28,7 @@ function App() {
       </Route>
       <Route path="free-course/:courseId" element={<FreeCoursePage />} />
       <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="*" element={<Login />} />
     </Routes>
   );
 }
